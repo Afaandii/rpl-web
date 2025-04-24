@@ -1,0 +1,76 @@
+{
+  "main": {
+    "name":"XI RPL 1",
+    "description":"live. love, laugh",
+    "github":"https://github.com/khuza08/xirpl1",
+    "project":"https://github.com/khuza08/xirpl1",
+    "social":[
+      {
+        "name":"instagram",
+        "url":"http://instagram.com/xirplsatoe",
+        "className":"fa fa-instagram"
+      },
+      {
+        "name":"github",
+        "url":"https://github.com/khuza08",
+        "className":"fa fa-github"
+      }
+    ]
+  },
+
+  "portfolio":{
+    "projects": [
+      {
+        "title":"Ngawi Wanderlust",
+        "category":"",
+        "image":"01.jpg",
+        "url":""
+      },
+      {
+        "title":"ani kontol",
+        "category":"",
+        "image":"02.jpg",
+        "url":""
+      },
+      {
+        "title":"bakso ngawi",
+        "category":"",
+        "image":"03.jpg",
+        "url":""
+      },
+      {
+        "title":"k1llv01d",
+        "category":"",
+        "image":"04.jpg",
+        "url":""
+      },
+      {
+        "title":"afandisantuyyy",
+        "category":"",
+        "image":"05.jpg",
+        "url":""
+      },
+      {
+        "title":"Anas jancok",
+        "category":"",
+        "image":"06.jpg",
+        "url":""
+      
+      },
+      {
+        "title":"kontolatos",
+        "category":"",
+        "image":"06.jpg",
+        "url":""
+      
+      },
+      {
+        "title":"huza ngocok",
+        "category":"",
+        "image":"06.jpg",
+        "url":""
+      
+      }
+    ]
+  }
+}
