@@ -1,5 +1,5 @@
 # rpl-web
 
-# testing inisialisasi webnya
+testing inisialisasi webnya
 
-# masih dilanjutkan dan difikirkan
+masih dilanjutkan dan difikirkan progressnya :D
