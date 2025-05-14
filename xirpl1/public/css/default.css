@@ -29,6 +29,7 @@ e. Others
 @import url("fonts.css");
 @import url("fontello/css/fontello.css");
 @import url("font-awesome/css/font-awesome.min.css");
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css);
 
 /* ------------------------------------------------------------------
 /* b. Reset
@@ -463,17 +464,15 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-   font: 16px/30px 'opensans-bold', sans-serif;
+   font: 16px sans-serif;
    background: #f700ff;
    display: inline-block;
 	text-decoration: none;
    letter-spacing: 0;
    color: #fff;
-	padding: 12px 20px;
-	margin-bottom: 18px;
    border: none;
-   cursor: pointer;
-   height: auto;
+   cursor: alias;
+   
 
    -webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -481,10 +480,6 @@ input[type="button"] {
 	-ms-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 
-   -moz-border-radius: 0px;
-   -webkit-border-radius: 0px;
-   -khtml-border-radius: 0px;
-   border-radius: 0px;
 }
 
 .button:hover,
