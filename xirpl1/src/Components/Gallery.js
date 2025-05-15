@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import Zmage from "react-zmage";
 import Fade from "react-reveal";
-import data from "./data.json"; // Import data JSON
+import data from "./data.json";
 
 let id = 0;
 
 class Portfolio extends Component {
   render() {
-    if (!data) return null; // Kalau datanya nggak ada, nggak tampil
+    if (!data) return null; 
 
     const projects = data.projects.map(function (project) {
-      let projectImage = project.image || "assets/img/huza.png";  // Default gambar jika nggak ada
+      let projectImage = project.image || "assets/img/huza.png";
 
       return (
         <div key={id++} className="columns portfolio-item">
@@ -25,7 +25,7 @@ class Portfolio extends Component {
     return (
       <section id="gallery">
       <section id="portfolio">
-        <Fade left duration={1000} distance="40px">
+        <Fade top duration={1000} distance="40px">
           <div className="row">
             <div className="twelve columns collapsed">
               <h1>Our Random Pictures</h1>

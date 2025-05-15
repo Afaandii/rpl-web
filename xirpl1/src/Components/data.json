@@ -2,6 +2,11 @@
     "projects": [
       { "title": "gambar 1", "image": "assets/img/huza.png" },
       { "title": "gambar 2", "image": "assets/img/logooLove.png" },
+      { "title": "gambar 3", "image": "" },
+      { "title": "gambar 3", "image": "" },
+      { "title": "gambar 3", "image": "" },
+      { "title": "gambar 3", "image": "" },
+      { "title": "gambar 3", "image": "" },
       { "title": "gambar 3", "image": "" }
     ]
   }

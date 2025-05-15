@@ -20,13 +20,11 @@ class Footer extends Component {
         <div className="row">
           <Fade bottom>
             <div className="twelve columns">
-              <ul className="social-links">{networks}</ul>
-
               <ul className="copyright">
-                <li>&copy; Copyright 2K24 k1llv01d</li>
+                <li>&copy; Copyright 2024-2025 XI RPL 1</li>
                 <li>
                   Design by{" "}
-                  <a title="HXZA x AFANDII" href="http://www.instagram.com/xirplsatoe">
+                  <a title="kHuza x afandii" href="http://www.instagram.com/xirplsatoe">
                     hxza x afandii
                   </a>
                 </li>
@@ -35,7 +33,7 @@ class Footer extends Component {
           </Fade>
 
           <div id="go-top">
-            <a className="smoothscroll" title="Keatas" href="#home">
+            <a className="smoothscroll" title="" href="#home">
               <i className="icon-up-open"></i>
             </a>
           </div>

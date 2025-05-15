@@ -22,6 +22,15 @@
 /* a. General Styles
 /* ------------------------------------------------------------------ */
 
+* {
+  user-select: none;
+  -webkit-user-select: none; /* Safari + older WebKit */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  -o-user-select: none;      /* Old Opera (optional, legacy banget) */
+}
+
+
 body { background: #0f0f0f; }
 
 /* ------------------------------------------------------------------ */
@@ -33,7 +42,6 @@ header {
    height: 800px;
    min-height: 500px;
    width: 100%;
-   
    text-align: center;
    overflow: hidden;
 }
@@ -86,7 +94,7 @@ header .social {
 }
 header .social li {
    
-   display: flex;
+   display: inline-block;
    margin: 0 15px;
    padding: 0;
 }
@@ -1011,14 +1019,15 @@ footer .social-links li:first-child { margin-left: 0; }
    margin-right: 30px;
 }
 .social .btn{
-   border-radius: 50%;
-   padding: 1px;
-   width: 35px;
-   height: 35px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 0 transparent);
+}
+.social .btn:hover{
+   scale: 1.1;
+   color: white;
+  filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 1));
+
 }
 .social .btn i{
    font-size: 2.5rem;
-}
-.project-btn{
-   background-color: #1abc9c !important;
 }
