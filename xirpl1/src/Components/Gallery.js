@@ -41,11 +41,11 @@ class Gallery extends Component {
                   {shuffledImages.map((src, index) => (
                     <div key={index} className="portfolio-item">
                       <img
-                        alt={`gambar ${index + 1}`}
+                        alt={` ${index + 1}`}
                         src={src.default || src}
                         style={{ width: "100%", height: "auto", display: "block" }}
                       />
-                      <div style={{ textAlign: "center" }}>{`gambar ${index + 1}`}</div>
+                      <div style={{ textAlign: "center" }}>{``}</div>
                     </div>
                   ))}
                 </Masonry>
