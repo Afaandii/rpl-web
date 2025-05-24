@@ -24,8 +24,8 @@ class Footer extends Component {
                 <li>&copy; Copyright 2024-2025 XI RPL 1</li>
                 <li>
                   Design by{" "}
-                  <a title="kHuza x afandii" href="http://www.instagram.com/xirplsatoe">
-                    hxza x afandii
+                  <a title="kHuza" href="http://www.instagram.com/xirplsatoe">
+                    hxza
                   </a>
                 </li>
               </ul>
