@@ -23,8 +23,8 @@ class Footer extends Component {
               <ul className="copyright">
                 <li>&copy; Copyright 2024-2025 XI RPL 1</li>
                 <li>
-                  Design by{" "}
-                  <a title="kHuza" href="http://www.instagram.com/xirplsatoe">
+                  Designed and created by{" "}
+                  <a title="kHuza" href="http://www.instagram.com/huzawastaken">
                     hxza
                   </a>
                 </li>

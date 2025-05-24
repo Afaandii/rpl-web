@@ -4,7 +4,13 @@
 }
 
 .portfolio-item img {
-  border-radius: 16px; /* atau sesuaikan sesuai keinginan */
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.portfolio-item img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.5));
 }
 
 .my-masonry-grid {
