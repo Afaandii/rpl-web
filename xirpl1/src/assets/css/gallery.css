@@ -3,6 +3,10 @@
     overflow-y: hidden;
 }
 
+.portfolio-item img {
+  border-radius: 16px; /* atau sesuaikan sesuai keinginan */
+}
+
 .my-masonry-grid {
   display: flex;
   margin-left: -10px; /* gutter negatif */
