@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import Fade from "react-reveal";
 import Masonry from "react-masonry-css";
-import '../assets/css/gallery.css';
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
+import "../assets/css/gallery.css";
 
 // import gambar lokal
 const importAll = (r) => r.keys().map(r);
-const images = importAll(require.context("../assets/img", false, /\.(png|jpe?g|svg)$/));
+const images = importAll(
+  require.context("../assets/img", false, /\.(png|jpe?g|svg)$/)
+);
 
 // shuffle gambar
 function shuffleArray(array) {
@@ -23,8 +27,18 @@ const breakpointColumnsObj = {
 };
 
 class Gallery extends Component {
+  state = {
+    isOpen: false,
+    photoIndex: 0,
+  };
+
+  openLightbox = (index) => {
+    this.setState({ isOpen: true, photoIndex: index });
+  };
+
   render() {
     const shuffledImages = shuffleArray(images);
+    const { isOpen, photoIndex } = this.state;
 
     return (
       <section id="gallery">
@@ -43,12 +57,36 @@ class Gallery extends Component {
                       <img
                         alt={` ${index + 1}`}
                         src={src.default || src}
-                        style={{ width: "100%", height: "auto", display: "block" }}
+                        onClick={() => this.openLightbox(index)}
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          display: "block",
+                          cursor: "pointer",
+                        }}
                       />
-                      <div style={{ textAlign: "center" }}>{``}</div>
                     </div>
                   ))}
                 </Masonry>
+
+                {isOpen && (
+                  <Lightbox
+                    mainSrc={shuffledImages[photoIndex].default || shuffledImages[photoIndex]}
+
+                    onCloseRequest={() => this.setState({ isOpen: false })}
+                    onMovePrevRequest={() =>
+                      this.setState({
+                        photoIndex:
+                          (photoIndex + shuffledImages.length - 1) % shuffledImages.length,
+                      })
+                    }
+                    onMoveNextRequest={() =>
+                      this.setState({
+                        photoIndex: (photoIndex + 1) % shuffledImages.length,
+                      })
+                    }
+                  />
+                )}
               </div>
             </div>
           </Fade>
