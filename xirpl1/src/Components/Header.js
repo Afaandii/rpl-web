@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Fade from "react-reveal";
 
 class Header extends Component {
@@ -44,10 +43,10 @@ class Header extends Component {
             <Fade bottom duration={2000}>
               <ul className="social">
                 <a href={project} className="button btn insta-btn">
-                  <i className="fa fa-instagram"></i>Instagram
+                  <i className="fa-brands fa-instagram"></i>
                 </a>
                 <a href={github} className="button btn github-btn">
-                  <i className="fa fa-github"></i>Github
+                  <i className="fa-brands fa-github"></i>
                 </a>
               </ul>
             </Fade>

@@ -1,26 +1,15 @@
-/*
-=====================================================================
-*   Ceevee v1.0 Layout Stylesheet
-*   url: styleshout.com
-*   03-18-2014
-=====================================================================
-
-   TOC:
-   a. General Styles
-   b. Header Styles
-   c. About Section
-   d. Resume Section
-   e. Portfolio Section
-   f. Call To Action Section
-   g. Testimonials Section
-   h. Contact Section
-   i. Footer
-
-===================================================================== */
-
 /* ------------------------------------------------------------------ */
 /* a. General Styles
 /* ------------------------------------------------------------------ */
+
+* {
+  user-select: none;
+  -webkit-user-select: none; /* Safari + older WebKit */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  -o-user-select: none;      /* Old Opera (optional, legacy banget) */
+}
+
 
 body { background: #0f0f0f; }
 
@@ -33,7 +22,6 @@ header {
    height: 800px;
    min-height: 500px;
    width: 100%;
-   
    text-align: center;
    overflow: hidden;
 }
@@ -85,6 +73,7 @@ header .social {
    font-size: 30px;
 }
 header .social li {
+   
    display: inline-block;
    margin: 0 15px;
    padding: 0;
@@ -112,7 +101,7 @@ header .scrolldown a {
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
 }
-header .scrolldown a:hover { color: #0762f9; }
+header .scrolldown a:hover { color: #650069; }
 
 /* primary navigation
 --------------------------------------------------------------------- */
@@ -135,7 +124,13 @@ header .scrolldown a:hover { color: #0762f9; }
    left: 0;
    top: 0;
 }
-.opaque { background-color: #333; }
+.opaque {
+  background-color: rgba(150, 103, 103, 0.2); /* semi-transparent */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* untuk Safari */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
 
 /* hide toggle button */
 #nav-wrap > a.mobile-btn { display: none; }
@@ -990,7 +985,7 @@ footer .social-links li:first-child { margin-left: 0; }
 	display: block;
 	width: 60px;
 	height: 60px;
-	background-color: #525252;
+	background-color: #383838;
 
 	-webkit-transition: all 0.2s ease-in-out;
    -moz-transition: all 0.2s ease-in-out;
@@ -1003,22 +998,22 @@ footer .social-links li:first-child { margin-left: 0; }
    line-height: 60px;
  	border-radius: 100%;
 }
-#go-top a:hover { background-color: #0F9095; }
+#go-top a:hover { background-color: #c000c7; color: #000000;}
 
 
 .social .btn:first-child{
    margin-right: 30px;
 }
 .social .btn{
-   padding-left: 30px;
-   padding-right: 30px; 
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 0 transparent);
+}
+.social .btn:hover{
+   scale: 1.1;
+   color: white;
+  filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 1));
+
 }
 .social .btn i{
-   margin-right: 15px;
-}
-.project-btn{
-   background-color: #1abc9c !important;
-}
-.github-btn{
-   background-color: #660069 !important;
+   font-size: 2.5rem;
 }
