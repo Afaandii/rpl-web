@@ -1,45 +1,61 @@
 import React, { Component } from "react";
-import Zmage from "react-zmage";
 import Fade from "react-reveal";
-import data from "./data.json";
+import Masonry from "react-masonry-css";
+import '../assets/css/gallery.css';
 
-let id = 0;
+// import gambar lokal
+const importAll = (r) => r.keys().map(r);
+const images = importAll(require.context("../assets/img", false, /\.(png|jpe?g|svg)$/));
 
-class Portfolio extends Component {
+// shuffle gambar
+function shuffleArray(array) {
+  return array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
+
+const breakpointColumnsObj = {
+  default: 4,
+  1100: 3,
+  700: 2,
+  500: 1,
+};
+
+class Gallery extends Component {
   render() {
-    if (!data) return null; 
-
-    const projects = data.projects.map(function (project) {
-      let projectImage = project.image || "assets/img/huza.png";
-
-      return (
-        <div key={id++} className="columns portfolio-item">
-          <div className="item-wrap">
-            <Zmage alt={project.title} src={projectImage} />
-            <div style={{ textAlign: "center" }}>{project.title}</div>
-          </div>
-        </div>
-      );
-    });
+    const shuffledImages = shuffleArray(images);
 
     return (
       <section id="gallery">
-      <section id="portfolio">
-        <Fade top duration={1000} distance="40px">
-          <div className="row">
-            <div className="twelve columns collapsed">
-              <h1>Our Random Pictures</h1>
-
-              <div id="portfolio-wrapper" className="bgrid-quarters s-bgrid-thirds cf">
-                {projects}
+        <section id="portfolio">
+          <Fade top duration={1000} distance="40px">
+            <div className="row">
+              <div className="twelve columns collapsed">
+                <h1>Our Random Pictures</h1>
+                <Masonry
+                  breakpointCols={breakpointColumnsObj}
+                  className="my-masonry-grid"
+                  columnClassName="my-masonry-grid_column"
+                >
+                  {shuffledImages.map((src, index) => (
+                    <div key={index} className="portfolio-item">
+                      <img
+                        alt={`gambar ${index + 1}`}
+                        src={src.default || src}
+                        style={{ width: "100%", height: "auto", display: "block" }}
+                      />
+                      <div style={{ textAlign: "center" }}>{`gambar ${index + 1}`}</div>
+                    </div>
+                  ))}
+                </Masonry>
               </div>
             </div>
-          </div>
-        </Fade>
+          </Fade>
+        </section>
       </section>
-    </section>
     );
   }
 }
 
-export default Portfolio;
+export default Gallery;

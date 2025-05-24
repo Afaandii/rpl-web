@@ -1,0 +1,19 @@
+.body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -10px; /* gutter negatif */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 10px; /* gutter */
+  background-clip: padding-box;
+}
+
+.portfolio-item {
+  margin-bottom: 10px;
+}
