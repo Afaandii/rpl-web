@@ -1,2 +1,1 @@
-[@khuza08](https://github.com/khuza08)
-<i>rolling branch.<i>
+use dev-huza branch for rolling update.
