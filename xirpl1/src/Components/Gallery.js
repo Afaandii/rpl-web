@@ -31,6 +31,7 @@ class Gallery extends Component {
       isOpen: false,
       photoIndex: 0,
       shuffledImages: shuffleArray(images),
+      hoveredIndex: null, // tambah state ini
     };
   }
 
@@ -38,8 +39,16 @@ class Gallery extends Component {
     this.setState({ isOpen: true, photoIndex: index });
   };
 
+  handleMouseEnter = (index) => {
+    this.setState({ hoveredIndex: index });
+  };
+
+  handleMouseLeave = () => {
+    this.setState({ hoveredIndex: null });
+  };
+
   render() {
-    const { isOpen, photoIndex, shuffledImages } = this.state;
+    const { isOpen, photoIndex, shuffledImages, hoveredIndex } = this.state;
 
     return (
       <section id="gallery">
@@ -63,6 +72,14 @@ class Gallery extends Component {
                       className="portfolio-item"
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 300 }}
+                      onMouseEnter={() => this.handleMouseEnter(index)}
+                      onMouseLeave={this.handleMouseLeave}
+                      style={{
+                        opacity:
+                          hoveredIndex === null || hoveredIndex === index ? 1 : 0.3,
+                        transition: "opacity 0.3s",
+                        cursor: "pointer",
+                      }}
                     >
                       <img
                         alt={`Image ${index + 1}`}
@@ -72,7 +89,6 @@ class Gallery extends Component {
                           width: "100%",
                           height: "auto",
                           display: "block",
-                          cursor: "pointer",
                         }}
                       />
                     </motion.div>
@@ -106,5 +122,6 @@ class Gallery extends Component {
     );
   }
 }
+
 
 export default Gallery;
