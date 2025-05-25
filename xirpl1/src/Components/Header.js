@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import Fade from "react-reveal";
+import "../assets/css/header.css";
+import "../assets/css/default.css";
+
+
+
 
 class Header extends Component {
   render() {
