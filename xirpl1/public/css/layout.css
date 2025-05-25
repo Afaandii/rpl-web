@@ -408,7 +408,12 @@ ul#nav li.current a { color: #f700ff; }
 
 #portfolio {
    background: #660069;
-   padding-top: 90px;
+   border-radius: 30px;
+   margin-left: 100px;
+   margin-right: 100px;
+   padding-left: -20px;
+   padding-right: -20px;
+   padding-top: 60px;
    padding-bottom: 60px;
 }
 #portfolio h1 {

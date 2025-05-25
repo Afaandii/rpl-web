@@ -1,7 +1,11 @@
 .body {
   overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 .portfolio-item img {
   border-radius: 16px;
   transition: all 0.3s;
