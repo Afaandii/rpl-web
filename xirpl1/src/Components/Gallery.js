@@ -77,7 +77,7 @@ class Gallery extends Component {
                       style={{
                         opacity:
                           hoveredIndex === null || hoveredIndex === index ? 1 : 0.3,
-                        transition: "opacity 0.3s",
+                        transition: "opacity 0.5s",
                         cursor: "pointer",
                       }}
                     >
