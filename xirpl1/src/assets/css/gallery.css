@@ -1,0 +1,29 @@
+.body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.portfolio-item img {
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.portfolio-item img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.5));
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -10px; /* gutter negatif */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 10px; /* gutter */
+  background-clip: padding-box;
+}
+
+.portfolio-item {
+  margin-bottom: 10px;
+}
