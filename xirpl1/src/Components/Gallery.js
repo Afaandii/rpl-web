@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Fade from "react-reveal";
 import Masonry from "react-masonry-css";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
+import { motion } from "framer-motion";  // v4.1.17
 import "../assets/css/gallery.css";
 
 const importAll = (r) => r.keys().map(r);
@@ -30,7 +30,7 @@ class Gallery extends Component {
     this.state = {
       isOpen: false,
       photoIndex: 0,
-      shuffledImages: shuffleArray(images), // shuffle sekali saat load
+      shuffledImages: shuffleArray(images),
     };
   }
 
@@ -44,7 +44,11 @@ class Gallery extends Component {
     return (
       <section id="gallery">
         <section id="portfolio">
-          <Fade top duration={1000} distance="40px">
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             <div className="row">
               <div className="twelve columns collapsed">
                 <h1>Our Random Pictures</h1>
@@ -54,7 +58,12 @@ class Gallery extends Component {
                   columnClassName="my-masonry-grid_column"
                 >
                   {shuffledImages.map((src, index) => (
-                    <div key={index} className="portfolio-item">
+                    <motion.div
+                      key={index}
+                      className="portfolio-item"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
                       <img
                         alt={`Image ${index + 1}`}
                         src={src.default || src}
@@ -66,7 +75,7 @@ class Gallery extends Component {
                           cursor: "pointer",
                         }}
                       />
-                    </div>
+                    </motion.div>
                   ))}
                 </Masonry>
 
@@ -91,7 +100,7 @@ class Gallery extends Component {
                 )}
               </div>
             </div>
-          </Fade>
+          </motion.div>
         </section>
       </section>
     );
