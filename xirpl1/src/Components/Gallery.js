@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import Masonry from "react-masonry-css";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
-import { motion } from "framer-motion";  // v4.1.17
+import { motion } from "framer-motion"; // v4.1.17
 import "../assets/css/gallery.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const importAll = (r) => r.keys().map(r);
 const images = importAll(
@@ -31,7 +33,7 @@ class Gallery extends Component {
       isOpen: false,
       photoIndex: 0,
       shuffledImages: shuffleArray(images),
-      hoveredIndex: null, // tambah state ini
+      hoveredIndex: null,
     };
   }
 
@@ -81,14 +83,16 @@ class Gallery extends Component {
                         cursor: "pointer",
                       }}
                     >
-                      <img
+                      <LazyLoadImage
                         alt={`Image ${index + 1}`}
                         src={src.default || src}
                         onClick={() => this.openLightbox(index)}
+                        effect="blur"
                         style={{
                           width: "100%",
                           height: "auto",
                           display: "block",
+                          cursor: "pointer",
                         }}
                       />
                     </motion.div>
@@ -97,9 +101,22 @@ class Gallery extends Component {
 
                 {isOpen && (
                   <Lightbox
-                    mainSrc={shuffledImages[photoIndex].default || shuffledImages[photoIndex]}
-                    nextSrc={shuffledImages[(photoIndex + 1) % shuffledImages.length].default || shuffledImages[(photoIndex + 1) % shuffledImages.length]}
-                    prevSrc={shuffledImages[(photoIndex + shuffledImages.length - 1) % shuffledImages.length].default || shuffledImages[(photoIndex + shuffledImages.length - 1) % shuffledImages.length]}
+                    mainSrc={
+                      shuffledImages[photoIndex].default ||
+                      shuffledImages[photoIndex]
+                    }
+                    nextSrc={
+                      shuffledImages[(photoIndex + 1) % shuffledImages.length].default ||
+                      shuffledImages[(photoIndex + 1) % shuffledImages.length]
+                    }
+                    prevSrc={
+                      shuffledImages[
+                        (photoIndex + shuffledImages.length - 1) % shuffledImages.length
+                      ].default ||
+                      shuffledImages[
+                        (photoIndex + shuffledImages.length - 1) % shuffledImages.length
+                      ]
+                    }
                     onCloseRequest={() => this.setState({ isOpen: false })}
                     onMovePrevRequest={() =>
                       this.setState({
@@ -122,6 +139,5 @@ class Gallery extends Component {
     );
   }
 }
-
 
 export default Gallery;
