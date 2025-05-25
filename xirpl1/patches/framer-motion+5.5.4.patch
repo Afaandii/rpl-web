@@ -1,0 +1,13 @@
+diff --git a/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs b/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
+index 34ba34b..0357eb4 100644
+--- a/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
++++ b/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
+@@ -1,6 +1,7 @@
+ import { __read, __spreadArray } from 'tslib';
+ import * as React from 'react';
+-import { useContext, useRef, useEffect, cloneElement, Children, isValidElement } from 'react';
++import React, { useContext, useRef, useEffect, cloneElement, isValidElement } from 'react';
++const { Children } = React;
+ import { useForceUpdate } from '../../utils/use-force-update.mjs';
+ import { PresenceChild } from './PresenceChild.mjs';
+ import { LayoutGroupContext } from '../../context/LayoutGroupContext.mjs';
