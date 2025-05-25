@@ -5,13 +5,11 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import "../assets/css/gallery.css";
 
-// import gambar lokal
 const importAll = (r) => r.keys().map(r);
 const images = importAll(
   require.context("../assets/img", false, /\.(png|jpe?g|svg)$/)
 );
 
-// shuffle gambar
 function shuffleArray(array) {
   return array
     .map((value) => ({ value, sort: Math.random() }))
@@ -27,18 +25,21 @@ const breakpointColumnsObj = {
 };
 
 class Gallery extends Component {
-  state = {
-    isOpen: false,
-    photoIndex: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      photoIndex: 0,
+      shuffledImages: shuffleArray(images), // shuffle sekali saat load
+    };
+  }
 
   openLightbox = (index) => {
     this.setState({ isOpen: true, photoIndex: index });
   };
 
   render() {
-    const shuffledImages = shuffleArray(images);
-    const { isOpen, photoIndex } = this.state;
+    const { isOpen, photoIndex, shuffledImages } = this.state;
 
     return (
       <section id="gallery">
@@ -55,7 +56,7 @@ class Gallery extends Component {
                   {shuffledImages.map((src, index) => (
                     <div key={index} className="portfolio-item">
                       <img
-                        alt={` ${index + 1}`}
+                        alt={`Image ${index + 1}`}
                         src={src.default || src}
                         onClick={() => this.openLightbox(index)}
                         style={{
@@ -72,7 +73,8 @@ class Gallery extends Component {
                 {isOpen && (
                   <Lightbox
                     mainSrc={shuffledImages[photoIndex].default || shuffledImages[photoIndex]}
-
+                    nextSrc={shuffledImages[(photoIndex + 1) % shuffledImages.length].default || shuffledImages[(photoIndex + 1) % shuffledImages.length]}
+                    prevSrc={shuffledImages[(photoIndex + shuffledImages.length - 1) % shuffledImages.length].default || shuffledImages[(photoIndex + shuffledImages.length - 1) % shuffledImages.length]}
                     onCloseRequest={() => this.setState({ isOpen: false })}
                     onMovePrevRequest={() =>
                       this.setState({
