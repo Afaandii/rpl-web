@@ -1,1 +1,3 @@
-use dev-huza branch for rolling update.
+detach fork from source.
+
+[updated](https://github.com/khuza08/webrpl1)
